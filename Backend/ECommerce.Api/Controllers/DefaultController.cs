@@ -1,5 +1,6 @@
 ﻿using EComerce.Api.Data;
 using EComerce.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,11 +25,12 @@ public class DefaultController : ControllerBase {
     }
 
     [HttpGet]
-    [Route("api/culo")]
+    [Authorize]
+    [Route("api/testauth")]
     public IActionResult GetCUlo() {
         var a = _db.Products.ToList();
 
-        return Ok("Ok");
+        return Ok(a);
     }
 
     [HttpGet]
