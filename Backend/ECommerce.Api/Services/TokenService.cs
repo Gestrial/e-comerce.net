@@ -44,7 +44,7 @@ public class TokenService : ITokenService {
 
     public DateTime GetNewRefreshExpiration() {
         var minutes = double.Parse(_configuration["JWT:RefreshExpirationMinutes"]);
-        return DateTime.Now.AddMinutes(minutes);
+        return DateTime.Now.AddMinutes(minutes).ToUniversalTime();
     }
 
 
